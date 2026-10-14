@@ -1,0 +1,35 @@
+### 1. Probar estado del servidor
+GET http://localhost:3000/api/health
+
+###
+
+### 2. Crear una reserva exitosa
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+
+{
+  "cliente_nombre": "Cesar Manzano",
+  "cliente_email": "cesar@test.com",
+  "fecha": "2026-10-25",
+  "hora_inicio": "10:00",
+  "hora_fin": "11:00"
+}
+
+###
+
+### 3. Probar choque de horario (Solapamiento)
+POST http://localhost:3000/api/reservas
+Content-Type: application/json
+
+{
+  "cliente_nombre": "Pedro Soto",
+  "cliente_email": "pedro@test.com",
+  "fecha": "2026-10-25",
+  "hora_inicio": "10:30",
+  "hora_fin": "11:30"
+}
+
+###
+
+### 4. Listar todas las reservas
+GET http://localhost:3000/api/reservas
